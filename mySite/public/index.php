@@ -1,43 +1,39 @@
 <?php
 
-/*
+/**
+ * Front controller
+ *
+ * PHP version 5.4
+ */
+
+/**
+ * Twig
+ */
+require_once dirname(__DIR__) . '/vendor/Twig/lib/Twig/Autoloader.php';
+Twig_Autoloader::register();
+
+
+/**
+ * Autoloader
+ */
+spl_autoload_register(function ($class) {
+    $root = dirname(__DIR__);   // get the parent directory
+    $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+    if (is_readable($file)) {
+        require $root . '/' . str_replace('\\', '/', $class) . '.php';
+    }
+});
+
+
+/**
  * Routing
  */
-require '../Core/Router.php';
-$router = new Router();
+$router = new Core\Router();
 
-/*
- * Add routes here
- */
-
+// Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('posts', ['controller' => 'Post', 'action' => 'index']);
-
-
-$url = $_SERVER['QUERY_STRING'];
-
-
-/*
- * Test
- */
-echo "Your url is: " . $url . "<br><br>";
-
-
-echo "printing all routes:" .  "<br>";
-echo '<pre>';
-var_dump($router->getRoutes());
-echo '</pre>' . "<br>";
-
-
-
-echo "printing result for current url:" . "<br>";
-if ($router->match($url)){
-    echo '<pre>';
-    var_dump($router->getParams());
-    echo '</pre>';
-}
-else{
-    echo "No route found for url '$url'";
-}
-
-
+$router->add('{controller}/{action}');
+$router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
+    
+$router->dispatch($_SERVER['QUERY_STRING']);
