@@ -23,12 +23,14 @@ $url = $_SERVER['QUERY_STRING'];
 echo "Your url is: " . $url . "<br><br>";
 
 
-/*
+echo "printing all routes:" .  "<br>";
 echo '<pre>';
 var_dump($router->getRoutes());
-echo '</pre>';
-*/
+echo '</pre>' . "<br>";
 
+
+
+echo "printing result for current url:" . "<br>";
 if ($router->match($url)){
     echo '<pre>';
     var_dump($router->getParams());
