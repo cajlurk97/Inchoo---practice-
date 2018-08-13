@@ -9,6 +9,7 @@ $router = new Router();
 /*
  * Add routes here
  */
+
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('posts', ['controller' => 'Post', 'action' => 'index']);
 
