@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use \Core\View;
 
+
+
 /**
  * Home controller
  *
@@ -40,15 +42,21 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        /*
-        View::render('Home/index.php', [
-            'name'    => 'Dave',
-            'colours' => ['red', 'green', 'blue']
-        ]);
-        */
         View::renderTemplate('Home/index.html', [
             'name'    => 'Dave',
             'colours' => ['red', 'green', 'blue']
         ]);
     }
+
+    public function aboutAction()
+    {
+
+        View::renderTemplate('Home/about.html');
+    }
+
+    public function contactAction()
+    {
+        View::renderTemplate('Home/contact.html');
+    }
+
 }

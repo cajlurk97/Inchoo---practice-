@@ -77,6 +77,7 @@ class Router
                 }
 
                 $this->params = $params;
+
                 return true;
             }
         }
@@ -104,17 +105,20 @@ class Router
      */
     public function dispatch($url)
     {
+
         $url = $this->removeQueryStringVariables($url);
+
 
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
             $controller = $this->getNamespace() . $controller;
-
             if (class_exists($controller)) {
+
                 $controller_object = new $controller($this->params);
 
                 $action = $this->params['action'];
+
                 $action = $this->convertToCamelCase($action);
 
                 if (is_callable([$controller_object, $action])) {
@@ -124,10 +128,43 @@ class Router
                     throw new \Exception("Method $action (in controller $controller) not found");
                 }
             } else {
+
                 throw new \Exception("Controller class $controller not found");
             }
         } else {
-            throw new \Exception('No route matched.', 404);
+
+            //...
+            //if method is not found, try with default index method
+            //...
+            //TO DO
+                //checking is slash on the end of url..
+            $url = $url . "index";
+
+            if ($this->match($url)) {
+                $controller = $this->params['controller'];
+                $controller = $this->convertToStudlyCaps($controller);
+                $controller = $this->getNamespace() . $controller;
+
+                if (class_exists($controller)) {
+
+                    $controller_object = new $controller($this->params);
+
+                    $action = $this->params['action'];
+
+                    $action = $this->convertToCamelCase($action);
+
+                    if (is_callable([$controller_object, $action])) {
+                        $controller_object->$action();
+
+                    } else {
+                        throw new \Exception("Method $action (in controller $controller) not found");
+                    }
+                } else {
+                    throw new \Exception("Controller class $controller not found");
+                }
+            } else {
+                throw new \Exception('No route matched.', 404);
+            }
         }
     }
 

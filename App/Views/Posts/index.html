@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Posts{% endblock %}
+{% block title %}File Vault - Posts{% endblock %}
 
 {% block body %}
 
-    <h1>Posts</h1>
+    <h1>Posts3</h1>
 
     <ul>
+        <br>
         {% for post in posts %}
             <h2>{{ post.title }}</h2>
             <p>{{ post.content }}</p>
