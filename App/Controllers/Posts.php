@@ -25,7 +25,7 @@ class Posts extends \Core\Controller
         echo "Helo from post index";
         //var_dump($posts);
 
-        View::renderTemplate('Posts/index.html', [
+        View::renderTemplate('Posts/logIn.html', [
             'posts' => $posts
         ]);
     }
@@ -47,7 +47,7 @@ class Posts extends \Core\Controller
      */
     public function editAction()
     {
-        View::renderTemplate('Home/index.html');
+        View::renderTemplate('Home/logIn.html');
         echo '<p>Route parameters: <pre>' .
              htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
     }

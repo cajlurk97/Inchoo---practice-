@@ -133,12 +133,24 @@ class Router
             }
         } else {
 
-            //...
-            //if method is not found, try with default index method
-            //...
-            //TO DO
-                //checking is slash on the end of url..
-            $url = $url . "index";
+            /*
+             * if method is not found, try with default index method
+             * ...
+             */
+
+            /*
+             * TO DO
+             * checking is slash on the end of url..
+             */
+
+            if(strlen($url)==0){
+                $url = $url . "home";
+            }
+            if($url[-1]!='/'){
+                $url = $url . "/index";
+            }else{
+                $url = $url . "index";
+            }
 
             if ($this->match($url)) {
                 $controller = $this->params['controller'];
