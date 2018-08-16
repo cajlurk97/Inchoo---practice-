@@ -8,9 +8,11 @@
 
 namespace App\Models;
 
+use \Core\Model;
+
 use PDO;
 
-class NewUser extends \Core\Model
+class NewUser extends Model
 {
     public static function insertUser($username, $password, $name, $email){
         try{

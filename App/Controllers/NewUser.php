@@ -10,9 +10,9 @@ namespace App\Controllers;
 
 
 use Core\Controller;
-use Core\Model;
 use Core\View;
 use  App\Models;
+
 class NewUser extends Controller
 {
     public function indexAction(){

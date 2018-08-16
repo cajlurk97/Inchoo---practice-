@@ -49,6 +49,7 @@ class Login extends \Core\Controller
      }
      else{
          echo "invalid user name";
+         echo "<a href=\"../newUser\">CreatenewAcc!</href>";
          View::renderTemplate('Login/loginForm.html');
      }
 
