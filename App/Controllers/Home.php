@@ -42,10 +42,15 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        View::renderTemplate('Home/index.html', [
-            'name'    => 'Dave',
-            'colours' => ['red', 'green', 'blue']
-        ]);
+        session_start();
+        if(isset($_SESSION['username'])){
+            View::renderTemplate('Home/index.html', [
+                "name"=> $_SESSION['username']
+            ]);
+        }
+        else{
+            View::renderTemplate('Login/loginForm.html');
+        }
     }
 
     public function aboutAction()

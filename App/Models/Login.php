@@ -17,7 +17,7 @@ class Login extends \Core\Model
     public static function userExist($username){
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT id, username, password, created_at FROM users WHERE username='$username' ");
+            $stmt = $db->query("SELECT id, username, password, name FROM users WHERE username='$username' ");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if( !empty($results) && !strcmp( $results[0]['username'], $username)){
                 return true;

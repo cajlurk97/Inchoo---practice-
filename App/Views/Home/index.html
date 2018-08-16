@@ -4,13 +4,7 @@
 
 {% block body %}
 
-    <h1>Welcome</h1>
+    <h1>Welcome {{name}}</h1>
 
-    <p>Hello from a Twig template, {{ name }}!</p>
-    <ul>
-        {% for colour in colours %}
-            {{ colour }}
-        {% endfor %}
-    </ul>
 
 {% endblock %}
