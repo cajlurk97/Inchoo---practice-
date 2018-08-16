@@ -14,14 +14,11 @@ use PDO;
 
 class Login extends \Core\Model
 {
-    public static function isUserExist($username){
-
+    public static function userExist($username){
         try {
             $db = static::getDB();
-
             $stmt = $db->query("SELECT id, username, password, created_at FROM users WHERE username='$username' ");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
             if( !empty($results) && !strcmp( $results[0]['username'], $username)){
                 return true;
             }
@@ -33,4 +30,19 @@ class Login extends \Core\Model
             echo $e->getMessage();
         }
     }
+
+    public static function getUserPassword($username)
+    {
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT username, password FROM users WHERE username='$username' ");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results[0]['password'];
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
 }
