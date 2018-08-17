@@ -7,9 +7,18 @@
 <h1>Welcome</h1>
 <h2>Acc details</h2>
 
-{{name}}
-{{email}}
-{{id}}
+<ul>
+    <br>
+    {% for file in files %}
+    <h2>{{ file.name }}</h2>
+    <p>{{ file.path }}</p>
+    {% endfor %}
+</ul>
+
+
+<p>Your name is: {{name}}</p>
+<p>Your email is: {{email}}</p>
+<p>Your id is: {{id}}</p>
 
 <a href="/login/logout"> Logout!</a>
     {% endblock %}
