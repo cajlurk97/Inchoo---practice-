@@ -1,0 +1,20 @@
+Ponedjeljak [6.8.2018]
+
+    Radno okruženje
+    PhpStorm
+    Taskovi(https://docs.google.com/document/d/1P016NEPGlsY7ed4D6ZGTPBjULHOpJLq6CmiqqAHY1-w/edit)
+    Instaliranje apache, php, phpmyAdmin (https://github.com/udovicic/echo/blob/master/apache-php7.2/Dockerfile)
+        
+        error(E: Unable to locate package php7.2-bcmath)
+        slowed https://stackoverflow.com/questions/43905580/php-7-1-bcmath-not-working
+
+
+Utorak [7.8.2018.]
+    
+    Bug oko phpmyadmin
+    Bug allownopasword..
+    Create user luka@localhost, pass
+
+    WiFi driver
+
+    LinuxComandLine http://wiki.lib.sun.ac.za/images/c/ca/TLCL-13.07.pdf

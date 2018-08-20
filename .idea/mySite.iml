@@ -7,6 +7,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/doc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/ext" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/test" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />

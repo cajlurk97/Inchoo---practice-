@@ -11,18 +11,17 @@ namespace App\Models;
 use PDO;
 
 
-
 class Login extends \Core\Model
 {
-    public static function userExist($username){
+    public static function userExist($username)
+    {
         try {
             $db = static::getDB();
             $stmt = $db->query("SELECT id, username, password, name FROM users WHERE username='$username' ");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if( !empty($results) && !strcmp( $results[0]['username'], $username)){
+            if (!empty($results) && !strcmp($results[0]['username'], $username)) {
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
 
@@ -44,5 +43,17 @@ class Login extends \Core\Model
         }
     }
 
+    public static function getUserActivateStatus($username)
+    {
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT isActiv FROM users WHERE username='$username' ");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results[0]['isActiv'];
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
 }
