@@ -1,0 +1,22 @@
+//Hardware details
+
+//Inxi is a bash script that fetches hardware information from multiple sources and commands on the system and gives you goodlooking reports that non-technical users can read easily.
+
+
+$ sudo inxi - Fx
+
+//Network:   
+//    Card-1:  Broadcom BCM43142 802.11b/g/n driver: wl bus-ID: 08:00.0
+//             IF: wlo1 state: up mac: 38:b1:db:f1:83:db
+//    
+//    Card-2:  Realtek RTL8101/2/6E PCI Express Fast/Gigabit Ethernet controller
+//             driver: r8169 v: 2.3LK-NAPI port: 4000 bus-ID: 09:00.0
+//           IF: eno1 state: up speed: 100 Mbps duplex: full
+//             mac: 38:63:bb:a2:b0:26
+
+
+$ sudo apt-get install bcmwl-kernel-source
+
+//This is the official working driver for BCM43142 for Ubuntu 14.04.
+
+$ sudo  reboot

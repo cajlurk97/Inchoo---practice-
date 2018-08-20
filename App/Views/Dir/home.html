@@ -1,24 +1,49 @@
 {% extends "base.html" %}
 
-{% block title %}File Vault - Uder directory home{% endblock %}
+{% block title %}File Vault - User directory home{% endblock %}
 
 {% block body %}
-
-<h1>Welcome</h1>
-<h2>Acc details</h2>
-
+<h1>Welcome {{username}}!</h1>
+<a href="/dir/newFile">Upload new file</a>
+<br>
+<h3>Your files({{filesCount}}):</h3><br>
 <ul>
-    <br>
-    {% for file in files %}
-    <h2>{{ file.name }}</h2>
-    <p>{{ file.path }}</p>
-    {% endfor %}
+    <table>
+        <tr>
+            <td>File name</td>
+            <td> | </td>
+            <td>Privacy</td>
+            <td> | </td>
+            <td>Download Counter</td>
+            <td> | </td>
+        </tr>
+
+        <tr>
+            <br>
+        </tr>
+
+        {% for file in files %}
+        <tr>
+            <td>{{ file.name }}</td>
+            <td> | </td>
+            <td>
+                {% if file.privacy == 1 %}Public{%endif%}
+                {% if file.privacy == 0 %}Private{%endif%}
+            </td>
+            <td> | </td>
+            <td>{{file.downloadCount}}</td>
+            <td> | </td>
+            <td><a href="dir/download?filename={{ file.name }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 </ul>
 
 
-<p>Your name is: {{name}}</p>
-<p>Your email is: {{email}}</p>
-<p>Your id is: {{id}}</p>
+<p>Account details<br>
+    Name: {{acc.name}}
+    E-mail: {{acc.email}}
+    Id: {{acc.id}}</p>
 
-<a href="/login/logout"> Logout!</a>
-    {% endblock %}
+<a href="/login/logout">Logout!</a>
+{% endblock %}

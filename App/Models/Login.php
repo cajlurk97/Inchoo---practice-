@@ -55,5 +55,18 @@ class Login extends \Core\Model
             echo $e->getMessage();
         }
     }
+    public static function getActiveUserId(){
+        session_start();
+        $username = $_SESSION["username"];
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT id FROM users WHERE username='$username' ");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results[0]['id'];
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
 }

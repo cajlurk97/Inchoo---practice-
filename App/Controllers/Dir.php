@@ -21,8 +21,9 @@ class Dir extends \Core\Controller
         session_start();
         if (isset($_SESSION['username'])) {
             $files = Models\Dir::getMyFiles($_SESSION['username']);
+            $acc = Models\Dir::getAcc($_SESSION['username']);
 
-            View::renderTemplate("Dir/home.html", ['files' => $files]);
+            View::renderTemplate("Dir/home.html", ['username' => $_SESSION['username'], 'files' => $files, 'acc' => $acc, 'filesCount' => count($files)]);
         } else {
             View::renderTemplate("Login/loginForm.html");
         }
@@ -55,18 +56,18 @@ class Dir extends \Core\Controller
     public function uploadAction()
     {
         session_start();
-        if (isset($_FILES['image'])) {
+        $privacy = $_POST["privacy"];
+        if (isset($_FILES['file'])) {
             $errors = array();
-            $file_name = $_FILES['image']['name'];
-            $file_tmp = $_FILES['image']['tmp_name'];
+            $file_name = $_FILES['file']['name'];
+            $file_tmp = $_FILES['file']['tmp_name'];
             $path = __DIR__ . "/uploads/" . $file_name;
-            var_dump($path);
             if (empty($errors) == true) {
                 move_uploaded_file($file_tmp, $path);
-                Models\Dir::insertFile($_SESSION['username'], $path, $file_name);
+                Models\Dir::insertFile($_SESSION['username'], $file_name, $file_name, $privacy);
                 echo "Success";
-
-
+                session_abort();
+                $this->indexAction();
             } else {
                 echo "fail";
                 print_r($errors);
@@ -74,5 +75,36 @@ class Dir extends \Core\Controller
         }
     }
 
+    public function downloadAction()
+    {
+        $filename = $_GET["filename"];
+        $dbfile = Models\Dir::getFile($filename);
 
+        $privacy = $dbfile[0]['privacy'];
+        $ownerid = $dbfile[0]['ownerid'];
+
+        $Path_of_file = __DIR__ . "/uploads/" . $filename;
+
+        if (!empty($filename) && file_exists($Path_of_file)) {
+
+            //Check does active user have permission on file
+            if ($ownerid != Models\Login::getActiveUserId() && $privacy == 0) {
+                echo 'You have no permission for that file';
+            }else{
+                // Define headers
+                header("Cache-Control: public");
+                header("Content-Description: File Transfer");
+                header("Content-Disposition: attachment; filename='$filename'");
+                header("Content-Transfer-Encoding: binary");
+                readfile($Path_of_file);                     //for reading the file
+                Models\Dir::incrementDownloadCount($filename);
+                exit;
+            }
+
+        } else {
+            echo 'The file you want here does not exist.';
+        }
+
+
+    }
 }
