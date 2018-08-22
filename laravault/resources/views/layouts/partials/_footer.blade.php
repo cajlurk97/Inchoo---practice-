@@ -1,10 +1,12 @@
+<br>
+<br>
 <div class="footer border-top"></div>
-
+<br>
 <div class="container" align="center">
 
     <ul class="list-unstyled">
         <li>Luka Kruljac @ inchoo-practice</li>
-        <li>2018</l
+        <li>2018</li>
     </ul>
 
 </div>

@@ -16,24 +16,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
-                @if($user['logedin']==true)
-
+                @auth
 
                     <li class="nav-item active">
                         <a class="nav-link" href="#">My laravault</a>
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
 
-                @endif
-                @if($user['logedin']==false)
+                @else
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
-                @endif
+                @endauth
 
             </ul>
         </div>

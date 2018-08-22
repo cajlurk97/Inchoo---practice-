@@ -6,24 +6,33 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-
-
-    public function index()
-    {
-
-        $user = array("logedin" => false, "name" => "luka");
-        return view('home', compact('user'));
-    }
-
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     /*
-    public function about()
+    public function __construct()
     {
-        return view('about', compact($user));
-    }
-
-    public function contact()
-    {
-        return view('contact', compact($user));;
+        $this->middleware('auth');
     }
     */
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('home');
+    }
+    public function about()
+    {
+        return view('about');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
 }

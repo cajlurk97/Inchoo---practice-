@@ -9,42 +9,31 @@
     <!-- Page Content -->
     <div class="container">
 
+        @guest
 
-        @if(!$user['logedin'])
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="mt-5">Welcome</h1>
+                    <p>Plesae, log in</p>
+                    <a href="/login" class="button class btn-primary">Login</a>
+                    <br>
+                    <br>
+                    <p>Or if you are new here</p>
+                    <a href=/register" class="button class btn-primary">Register</a>
                 </div>
             </div>
 
-            <form action="/login/login">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter username">
-                    <small class="form-text text-muted">We'll never share your email with anyone
-                        else.
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
 
-        @endif
-
-
-        @if($user['logedin'])
+        @else
 
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1 class="mt-5">Welcome, {{$user['name']}}</h1>
+                    <h1 class="mt-5">Welcome, {{Auth::user()->name}}</h1>
+                    <button class="button class btn-primary">MyFiles</button>
                 </div>
             </div>
 
-        @endif
-
+        @endguest
 
     </div>
 
