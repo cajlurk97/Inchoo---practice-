@@ -1,10 +1,11 @@
 <!-- Header -->
 <header>
     <div class="container">
-        <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our Studio!</div>
-            <div class="intro-heading">It's Nice To Meet You</div>
-            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5">Laravault</h1>
+                <p class="lead">Lite file storage system</p>
+            </div>
         </div>
     </div>
-</header
+</header>

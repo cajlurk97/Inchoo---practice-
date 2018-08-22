@@ -1,41 +1,42 @@
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
-        </div>
+<body>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#services">Services</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#about">About</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#team">Team</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
-                </li>
+                @if($user['logedin']==true)
+
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">My laravault</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+
+                @endif
+                @if($user['logedin']==false)
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                @endif
+
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
 </nav>
+

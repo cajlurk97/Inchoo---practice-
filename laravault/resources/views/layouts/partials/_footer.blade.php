@@ -1,17 +1,15 @@
-<!-- jQuery -->
-<script src="js/app.js"></script>
+<div class="footer border-top"></div>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<div class="container" align="center">
 
-<!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpAnimatedHeader.js"></script>
+    <ul class="list-unstyled">
+        <li>Luka Kruljac @ inchoo-practice</li>
+        <li>2018</l
+    </ul>
 
-<!-- Contact Form JavaScript -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
+</div>
 
-<!-- Custom Theme JavaScript -->
-<script src="js/agency.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
