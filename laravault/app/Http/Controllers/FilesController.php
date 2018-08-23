@@ -43,24 +43,26 @@ class FilesController extends Controller
     {
         $fileid = $_GET["fileid"];
         $file=DB::table('files')->where('id', '=', $fileid)->get();
-
+        $file=json_decode(json_encode($file[0]), true);
         var_dump($file);
-        /*
-        $path = dirname(__DIR__, 3) . "/uploads/";
-        $ownerid=$file[0]['ownerid'];
-        $privacy=$file[0]['public'];
 
-        if (!empty($filename) && file_exists($path . $file[0]['name'])) {
+        $path = dirname(__DIR__, 3) . "/uploads/";
+        $ownerid=$file['ownerid'];
+        $privacy=$file['public'];
+        $filename=$file['name'];
+
+        if (!empty($filename) && file_exists($path . $file['name'])) {
             //Check does active user have permission on file
-            if ($ownerid != \Auth::user()->get('id') && $privacy == 0) {
+
+            if ($ownerid != \Auth::user()->id && $privacy == 0) {
                 echo 'You have no permission for that file';
             }else{
                 // Define headers
                 header("Cache-Control: public");
                 header("Content-Description: File Transfer");
-                header("Content-Disposition: attachment; filename='$file[0]['name']'");
+                header("Content-Disposition: attachment; filename='$filename'");
                 header("Content-Transfer-Encoding: binary");
-                readfile($path. $file[0]['name']);                     //for reading the file
+                readfile($path. $file['name']);
                 //Models\Dir::incrementDownloadCount($filename);
                 exit;
             }
@@ -68,7 +70,7 @@ class FilesController extends Controller
         } else {
             echo 'The file you want here does not exist.';
         }
-        */
+
     }
 
 
