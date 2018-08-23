@@ -39,4 +39,37 @@ class FilesController extends Controller
 
     }
 
+    public function Download()
+    {
+        $fileid = $_GET["fileid"];
+        $file=DB::table('files')->where('id', '=', $fileid)->get();
+
+        var_dump($file);
+        /*
+        $path = dirname(__DIR__, 3) . "/uploads/";
+        $ownerid=$file[0]['ownerid'];
+        $privacy=$file[0]['public'];
+
+        if (!empty($filename) && file_exists($path . $file[0]['name'])) {
+            //Check does active user have permission on file
+            if ($ownerid != \Auth::user()->get('id') && $privacy == 0) {
+                echo 'You have no permission for that file';
+            }else{
+                // Define headers
+                header("Cache-Control: public");
+                header("Content-Description: File Transfer");
+                header("Content-Disposition: attachment; filename='$file[0]['name']'");
+                header("Content-Transfer-Encoding: binary");
+                readfile($path. $file[0]['name']);                     //for reading the file
+                //Models\Dir::incrementDownloadCount($filename);
+                exit;
+            }
+
+        } else {
+            echo 'The file you want here does not exist.';
+        }
+        */
+    }
+
+
 }

@@ -40,7 +40,9 @@
 
                             <tr>
                                 <td>{{$key + 1 }}</td>
+
                                 <td>{{ $file->{'name'} }}</td>
+
                                 <td>
                                     @if( $file->{'public'} == 1)
                                         Public
@@ -49,8 +51,11 @@
                                     @endif
 
                                 </td>
+
                                 <td>{{$file->{'downloadcount'} }}</td>
-                                <td><a href="dir/download?filename={{ $file->{'name'} }}">Download</a></td>
+
+                                <td><a href="{{  route('fileDownload') . '?fileid='}} {{ $file->{'id'} }}">Download</a></td>
+
                             </tr>
                         @endforeach
 

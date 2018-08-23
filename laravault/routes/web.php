@@ -40,3 +40,8 @@ Route::post('/mylaravault/fileupload', [
     'as'=> 'fileUpload',
     'uses' => 'FilesController@Upload'
 ]);
+
+Route::get('/mylaravault/filedownload', [
+    'as'=> 'fileDownload',
+    'uses' => 'FilesController@Download'
+]);
