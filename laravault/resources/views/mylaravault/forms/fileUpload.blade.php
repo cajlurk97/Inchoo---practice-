@@ -13,11 +13,15 @@
                     <div class="card-header">Upload file</div>
 
                     <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Example file input</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
+
+                        <form enctype="multipart/form-data" action="{{ route('fileUpload')}}" method="POST">
+                            @csrf
+                                <input type="file" class="form-control-file" name="file">
+                                <br>
+                                <input type="radio" name="privacy" value=1> Public<br><br>
+                                <input type="radio" name="privacy" value=0> Private<br><br>
+                                <input type="submit" value="Upload">
+
                         </form>
 
                     </div>

@@ -26,7 +26,6 @@
 
                     <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
 
-
                 </div>
 
             </div>

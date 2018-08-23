@@ -25,12 +25,18 @@ Route::get('/mylaravault', [
     'uses' => 'MyLaravaultController@index'
 ]);
 
-Route::get('/mylaravault/fileupload', [
-    'as'=> 'fileUpload',
-    'uses' => 'MyLaravaultController@fileUpload'
+Route::get('/mylaravault/fileuploadform', [
+    'as'=> 'fileUploadForm',
+    'uses' => 'MyLaravaultController@showFileUploadForm'
 ]);
 
-Route::get('/mylaravault/folderupload', [
-    'as'=> 'folderUpload',
-    'uses' => 'MyLaravaultController@folderUpload'
+Route::get('/mylaravault/folderuploadform', [
+    'as'=> 'folderUploadForm',
+    'uses' => 'MyLaravaultController@showFolderUploadForm'
+]);
+
+
+Route::post('/mylaravault/fileupload', [
+    'as'=> 'fileUpload',
+    'uses' => 'FilesController@Upload'
 ]);
