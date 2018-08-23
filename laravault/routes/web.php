@@ -20,3 +20,17 @@ Route::get('/contact', 'HomeController@contact');
 
 Auth::routes();
 
+Route::get('/mylaravault', [
+    'as'=> 'mylaravault',
+    'uses' => 'MyLaravaultController@index'
+]);
+
+Route::get('/mylaravault/fileupload', [
+    'as'=> 'fileUpload',
+    'uses' => 'MyLaravaultController@fileUpload'
+]);
+
+Route::get('/mylaravault/folderupload', [
+    'as'=> 'folderUpload',
+    'uses' => 'MyLaravaultController@folderUpload'
+]);

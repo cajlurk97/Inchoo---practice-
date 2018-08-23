@@ -39,7 +39,7 @@
 
                     <h1 class="mt-5">Welcome, {{Auth::user()->name}}</h1>
 
-                        <a class="btn btn-primary" href="{{ route('login') }}">MyFiles</a>
+                        <a "class="btn btn-primary" href="{{ route('mylaravault') }}">MyFiles</a>
 
                 </div>
             </div>

@@ -8,7 +8,7 @@
     <title>Laravault - @yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/app.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     </head>
 

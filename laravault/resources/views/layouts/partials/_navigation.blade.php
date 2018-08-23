@@ -19,7 +19,7 @@
                 @auth
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">My laravault</a>
+                        <a class="nav-link" href="/mylaravault">My laravault</a>
                     </li>
 
                     <li class="nav-item active">
