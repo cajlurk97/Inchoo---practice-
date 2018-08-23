@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <div class="card-header">Upload file</div>
 
                     <div class="card-body">
                         <form>
@@ -19,6 +19,7 @@
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

@@ -6,18 +6,28 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Upload folder</div>
 
-        <form enctype="multipart/form-data" action="/dir/upload" method="POST">
-            <h1>Upload your file</h1>
-            <input type="file" name="file"></input><br>
-            <input type="radio" name="privacy" value="1"> Public
-            <input type="radio" name="privacy" value="0"> Private<br>
-            <input type="submit" value="Upload"></input>
+                    <div class="card-body">
 
-        </form>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Example file input</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        </form>
 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
 @endsection
 
