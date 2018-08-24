@@ -7,6 +7,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Core\View;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -77,6 +78,8 @@ class RegisterController extends Controller
         //$path = $_SERVER['DOCUMENT_ROOT'] . "/mails/";
         $path = dirname(__DIR__, 4) . "/mails/";
         $mailfile = fopen($path . $mailname, "w");
+
+        Mail::to($user->email)->send(new VerifyMail($user));;
 
         fwrite($mailfile, $content);
         return $user;
