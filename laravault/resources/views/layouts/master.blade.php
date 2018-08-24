@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <link rel="icon" type="image/ico" href="logo.ico" />
     </head>
 
 <body id="page-top" class="index">

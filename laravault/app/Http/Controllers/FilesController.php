@@ -63,14 +63,14 @@ class FilesController extends Controller
                 header("Content-Disposition: attachment; filename='$filename'");
                 header("Content-Transfer-Encoding: binary");
                 readfile($path. $file['name']);
-                //Models\Dir::incrementDownloadCount($filename);
-                exit;
+                DB::table('files')->where('id', '=', $fileid)->increment('downloadcount');
+
             }
 
         } else {
             echo 'The file you want here does not exist.';
         }
-
+        MyLaravaultController::index();
     }
 
 

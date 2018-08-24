@@ -1,9 +1,9 @@
 <br>
 <br>
-<div class="footer border-top"></div>
+
 <br>
 <div class="container" align="center">
-
+    <div class="footer border-top"></div>
     <ul class="list-unstyled">
         <li>Luka Kruljac @ inchoo-practice</li>
         <li>2018</li>

@@ -45,3 +45,10 @@ Route::get('/mylaravault/filedownload', [
     'as'=> 'fileDownload',
     'uses' => 'FilesController@Download'
 ]);
+
+Route::get('/mylaravault/public', [
+    'as'=> 'publicFiles',
+    'uses' => 'MyLaravaultController@publicIndex'
+]);
+
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

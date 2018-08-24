@@ -1,5 +1,7 @@
 <!-- Header -->
 <header>
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -7,5 +9,7 @@
                 <p class="lead">Lite file storage system</p>
             </div>
         </div>
+        <div class="footer border-top"></div>
     </div>
+
 </header>

@@ -21,7 +21,12 @@
 
                 </div>
             </div>
-            <br>
+
+            <div class="card-body" align="right">
+                <label>View public files</label>
+                <a class="btn btn-primary" href="{{ route('publicFiles') }}">Shared files</a>
+            </div>
+
             <div class="card-body">
 
                 <div class="row">
@@ -31,7 +36,9 @@
                             <th>#</th>
                             <th>File name</th>
                             <th>Privacy</th>
+                            <th>Owner</th>
                             <th>Download Counter</th>
+                            <th>Download</th>
                         </tr>
                         </thead>
 
@@ -41,10 +48,10 @@
                             <tr>
                                 <td>{{$key + 1 }}</td>
 
-                                <td>{{ $file->{'name'} }}</td>
+                                <td>{{ $file['name'] }}</td>
 
                                 <td>
-                                    @if( $file->{'public'} == 1)
+                                    @if( $file['public'] == 1)
                                         Public
                                     @else
                                         Private
@@ -52,9 +59,18 @@
 
                                 </td>
 
-                                <td>{{$file->{'downloadcount'} }}</td>
+                                <td>
+                                    @if($file['ownerid'] == \Auth::user()->id)
+                                        Me
+                                    @else
+                                        {{ $file['ownerfullname'] }}
+                                    @endif
+                                </td>
 
-                                <td><a href="{{  route('fileDownload') . '?fileid='}} {{ $file->{'id'} }}">Download</a></td>
+                                <td align="center">{{$file['downloadcount'] }}</td>
+
+                                <td><a href="{{  route('fileDownload') . '?fileid='}} {{ $file['id'] }}">Download</a>
+                                </td>
 
                             </tr>
                         @endforeach

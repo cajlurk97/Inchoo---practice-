@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Email</title>
+</head>
+
+<body>
+<h2>Welcome to the site Luka</h2>
+<br/>
+Your registered email-id is luka97kruljac@gmail.com , Please click on the below link to verify your email account
+<br/>
+<a href="http://localhost/user/verify/IQaJkQvDYFzjcY0CQzSd5df6dV3k0jANXOG4DcJF">Verify Email</a>
+</body>
+
+</html>
