@@ -104,13 +104,23 @@ class FilesController extends Controller
         }
     }
 
-    public function delteFile()
+    public function deleteFile()
     {
+        $filename=DB::table("files")->select('path')
+            ->where('id', '=', $_GET['fileid'])->get();
+        $filename = json_decode(json_encode($filename[0]), true);
+        //var_dump($filename['path']);
+        //var_dump(file_exists($filename['path']));
+        unlink((string)$filename['path']);
+
+
         DB::table("files")
             ->where('id', '=', $_GET['fileid'])
             ->delete();
+
         return MyLaravaultController::index();
     }
+
 
     public function editFile(){
 
@@ -125,9 +135,10 @@ class FilesController extends Controller
                 ->update(['name' => $_POST['filename'] ]);
         }
         var_dump( date("Y_m_d H:i:s"));
-        DB::table("files")
+        /*DB::table("files")
             ->where('id', '=', $_GET['fileid'])
             ->update(['updated_at' => date("Y_m_d H:i:s") ]);
+        */
         return MyLaravaultController::index();
     }
 

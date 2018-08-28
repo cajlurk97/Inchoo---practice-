@@ -67,6 +67,6 @@ Route::get('/mylaravault/fileeditform', [
 
 Route::get('/mylaravault/filedelete', [
     'as'=> 'fileDelete',
-    'uses' => 'FilesController@delteFile'
+    'uses' => 'FilesController@deleteFile'
 ]);
 
