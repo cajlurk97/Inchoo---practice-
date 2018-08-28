@@ -53,8 +53,10 @@ class FilesController extends Controller
         $file = DB::table('files')->where('id', '=', $fileid)->get();
         $file = json_decode(json_encode($file[0]), true);
 
-        $path = dirname(__DIR__, 3) . "/uploads/";
+        $path = $file['path'];
         $filename = $file['name'];
+        $ext = $file['ext'];
+        var_dump($path);
 
         if (!empty($filename) && file_exists($path)) {
             //Check does active user have permission on file
@@ -65,8 +67,9 @@ class FilesController extends Controller
                 // Define headers
                 header("Cache-Control: public");
                 header("Content-Description: File Transfer");
-                header("Content-Disposition: attachment; filename='$filename'");
+                header("Content-Disposition: attachment; filename='$filename.$ext'");
                 header("Content-Transfer-Encoding: binary");
+
                 readfile($path);
                 DB::table('files')->where('id', '=', $fileid)->increment('downloadcount');
 
@@ -134,7 +137,6 @@ class FilesController extends Controller
                 ->where('id', '=', $_GET['fileid'])
                 ->update(['name' => $_POST['filename'] ]);
         }
-        var_dump( date("Y_m_d H:i:s"));
         /*DB::table("files")
             ->where('id', '=', $_GET['fileid'])
             ->update(['updated_at' => date("Y_m_d H:i:s") ]);

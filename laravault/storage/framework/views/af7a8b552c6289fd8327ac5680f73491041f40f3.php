@@ -34,7 +34,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6 text-md-right">
-                                    <input type="radio" name="privacy" value=0> Private
+                                    <input type="radio" name="privacy" value=0 checked="checked"> Private
                                 </div>
                             </div>
 

@@ -18,7 +18,7 @@
                                 <input type="file" class="form-control-file" name="file">
                                 <br>
                                 <input type="radio" name="privacy" value=1> Public<br><br>
-                                <input type="radio" name="privacy" value=0> Private<br><br>
+                                <input type="radio" name="privacy" value=0 checked="checked"> Private<br><br>
                                 <input type="submit" value="Upload">
 
                         </form>
