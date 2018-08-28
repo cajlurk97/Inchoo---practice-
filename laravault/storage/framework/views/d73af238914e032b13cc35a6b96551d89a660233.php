@@ -1,10 +1,8 @@
-@extends('layouts.master')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
     Home
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -14,8 +12,8 @@
 
                     <div class="card-body">
 
-                        <form enctype="multipart/form-data" action="{{ route('fileUpload')}}" method="POST">
-                            @csrf
+                        <form enctype="multipart/form-data" action="<?php echo e(route('fileUpload')); ?>" method="POST">
+                            <?php echo csrf_field(); ?>
 
                                 <input type="file" class="form-control-file" name="file">
                                 <br>
@@ -33,5 +31,7 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

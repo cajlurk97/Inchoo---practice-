@@ -20,7 +20,8 @@ class CreateFilesTable extends Migration
             $table->integer("ownerid");
             $table->integer("downloadcount")->default(0);
             $table->boolean("public");
-            $table->timestamps();
+            $table->string('ext');
+            $table->timestamps()->default("CURRENT_TIME");
         });
     }
 

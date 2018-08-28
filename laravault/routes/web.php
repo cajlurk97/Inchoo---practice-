@@ -52,3 +52,21 @@ Route::get('/mylaravault/public', [
 ]);
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+
+Route::post('/mylaravault/fileedit', [
+    'as'=> 'fileEdit',
+    'uses' => 'FilesController@editFile'
+]);
+
+Route::get('/mylaravault/fileeditform', [
+    'as'=> 'fileEditForm',
+    'uses' => 'FilesController@showEditForm'
+]);
+
+
+Route::get('/mylaravault/filedelete', [
+    'as'=> 'fileDelete',
+    'uses' => 'FilesController@delteFile'
+]);
+
