@@ -3,13 +3,22 @@
 {% block title %}LogIn{% endblock %}
 
 {% block body%}
-<h1>File Vault Login</h1>
-    <div class="form">
-        <form action="/login/login" method="post">
-            <input type="text" name="username" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <button>login</button>
-        </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <div class="form">
+                        <form action="/login/login" method="post">
+                            <input type="text" name="username" placeholder="username">
+                            <input type="password" name="password" placeholder="password">
+                            <button>login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {%endblock%}

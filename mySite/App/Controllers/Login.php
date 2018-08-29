@@ -47,7 +47,7 @@ class Login extends Controller
             }
         } else {
             echo "invalid user name";
-            echo "<a href=\"../newUser\">CreatenewAcc!</href>";
+            echo "<br> <a href=\"../newUser\">CreatenewAcc!</href></a>";
             View::renderTemplate('Login/loginForm.html');
         }
 

@@ -4,51 +4,57 @@
 {% block title %}File Vault - User directory home{% endblock %}
 
 {% block body %}
+<div class="container">
 
-<h1>Welcome {{username}}!</h1>
-<a href="/dir/newFile">Upload new file</a>
-<br>
-<h2>Your files({{filesCount}}):</h2><br>
-<ul>
-    <table>
-        <tr>
-            <th>File name</th>
-            <th>Privacy</th>
-            <th>Download Counter</th>
-        </tr>
 
-        <tr>
+    <div class="row">
+
+        <div class="col-lg-12 text-center">
+            <h1>Welcome {{username}}!</h1>
+            <a href="/dir/newFile">Upload new file</a>
             <br>
-        </tr>
+            <h2>Your files({{filesCount}}):</h2>
 
-        {% for file in files %}
-        <tr>
-            <td>{{ file.name }}</td>
-            <td>
-                {% if file.privacy == 1 %}Public{%endif%}
-                {% if file.privacy == 0 %}Private{%endif%}
-            </td>
-            <td>{{file.downloadCount}}</td>
-            <td><a href="dir/download?filename={{ file.name }}">Download</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-</ul>
-<h3>Account details</h3>
-<ul>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>E-mail</th>
-            <th>Id</th>
-        </tr>
-        <tr>
-            <td>{{acc.name}}</td>
-            <td>{{acc.email}}</td>
-            <td>{{acc.id}}</td>
-        </tr>
-    </table>
+                <table class="table table-striped">
+                    <tr>
+                        <th>File name</th>
+                        <th>Privacy</th>
+                        <th>Download Counter</th>
+                        <th>Download</th>
+                    </tr>
 
-</ul>
-<a href="/login/logout">Logout!</a>
+
+                    {% for file in files %}
+                    <tr>
+                        <td>{{ file.name }}</td>
+                        <td>
+                            {% if file.privacy == 1 %}Public{%endif%}
+                            {% if file.privacy == 0 %}Private{%endif%}
+                        </td>
+                        <td>{{file.downloadCount}}</td>
+                        <td><a href="/dir/download?filename={{ file.name }}">Download</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            <h5>Account details</h5>
+
+                <table class="table table-striped" class="table table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Id</th>
+                    </tr>
+                    <tr>
+                        <td>{{acc.name}}</td>
+                        <td>{{acc.email}}</td>
+                        <td>{{acc.id}}</td>
+                    </tr>
+                </table>
+
+
+            <a href="/login/logout">Logout!</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

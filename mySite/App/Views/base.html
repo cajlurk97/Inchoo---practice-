@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>File Vault - {%block title%}{% endblock %}</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 5px;
-            text-align: left;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Laravault - @yield('title')</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="logo.ico"/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5">File Vault</h1>
+            </div>
+        </div>
+        <div class="footer border-top"></div>
+    </div>
+    <br>
 </head>
 <body>
 {%block body%}{% endblock %}
 </body>
+
+<footer>
+
+    <br>
+    <div class="container" align="center">
+        <div class="footer border-top"></div>
+        <ul class="list-unstyled">
+            <li>Luka Kruljac @ inchoo-practice</li>
+            <li>2018</li>
+        </ul>
+
+    </div>
+
+</footer>
+
 </html>
